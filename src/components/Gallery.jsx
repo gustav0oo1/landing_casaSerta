@@ -9,14 +9,14 @@ export default function Gallery() {
   };
 
   const images = [
-    "img/gallery/1ga.webp",
-    "img/gallery/2ga.webp",
-    "img/gallery/3ga.webp",
-    "img/gallery/4ga.webp",
-    "img/gallery/5ga.webp",
-    "img/gallery/6ga.webp",
-    "img/gallery/7ga.webp",
-    "img/gallery/8ga.webp",
+    "/img/gallery/1ga.webp",
+    "/img/gallery/2ga.webp",
+    "/img/gallery/3ga.webp",
+    "/img/gallery/4ga.webp",
+    "/img/gallery/5ga.webp",
+    "/img/gallery/6ga.webp",
+    "/img/gallery/7ga.webp",
+    "/img/gallery/8ga.webp",
   ];
 
   return (
