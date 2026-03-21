@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 // Importações estáticas relativas para o Vite garantir o carregamento
-import imgBackground from '../../img/background_paioça.jpg';
-import imgQuadroTransparente from '../../img/quadro_paioça_transparente.png';
+import imgBackground from '/img/background_paioça.jpg';
+import imgQuadroTransparente from '/img/quadro_paioça_transparente.png';
 
 export default function Hero() {
   const [timeLeft, setTimeLeft] = useState({ days: 6, hours: 8, minutes: 50, seconds: 26 });
