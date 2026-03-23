@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const menuLinks = [
     { name: 'Home', href: '/#home', isHash: true },
@@ -17,29 +19,35 @@ export default function Navbar() {
 
   return (
     <>
-      <motion.nav 
+      <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className="fixed top-0 left-0 w-full flex justify-between items-center p-5 md:p-6 lg:padding-x-10 lg:py-8 z-[100] bg-gradient-to-b from-black/90 to-transparent backdrop-blur-[2px]"
       >
         {/* Esquerda: Logo Sagrado */}
-        <Link to="/" className="flex flex-col drop-shadow-md cursor-pointer group z-[110]">
+        <div
+          onClick={() => {
+            navigate("/");
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+          className="flex flex-col drop-shadow-md cursor-pointer group z-[110]"
+        >
           <span className="font-serif font-bold text-lg md:text-2xl tracking-widest text-white group-hover:text-yellow-500 transition-colors duration-300">
             PAIOÇA
           </span>
           <span className="text-[0.5rem] md:text-[0.6rem] tracking-[0.3em] uppercase text-neutral-400 -mt-1 group-hover:text-neutral-300">
             do Caboclo
           </span>
-        </Link>
+        </div>
 
         {/* Centro: Links (Desktop) */}
         <ul className="hidden lg:flex items-center gap-10">
           {menuLinks.map((item) => (
             <li key={item.name} className="relative group overflow-hidden">
               {item.external ? (
-                <a 
-                  href={item.href} 
+                <a
+                  href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs font-bold tracking-[0.2em] uppercase text-neutral-300 hover:text-yellow-400 transition-colors duration-300"
@@ -47,15 +55,15 @@ export default function Navbar() {
                   {item.name}
                 </a>
               ) : item.isHash ? (
-                <HashLink 
-                  smooth 
+                <HashLink
+                  smooth
                   to={item.href}
                   className="text-xs font-bold tracking-[0.2em] uppercase text-neutral-300 hover:text-yellow-400 transition-colors duration-300"
                 >
                   {item.name}
                 </HashLink>
               ) : (
-                <Link 
+                <Link
                   to={item.href}
                   className="text-xs font-bold tracking-[0.2em] uppercase text-neutral-300 hover:text-yellow-400 transition-colors duration-300"
                 >
@@ -70,7 +78,7 @@ export default function Navbar() {
         {/* Direita: Botão de Ingressos e Hamburger */}
         <div className="flex items-center gap-4 z-[110]">
           {/* Botão Mobile/Desktop de Ingressos */}
-          <a 
+          <a
             href="https://wa.me/5519997928263"
             target="_blank"
             rel="noopener noreferrer"
@@ -81,20 +89,20 @@ export default function Navbar() {
           </a>
 
           {/* Botão Hamburger (Apenas Mobile) */}
-          <button 
+          <button
             onClick={() => setIsOpen(!isOpen)}
             className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 focus:outline-none"
             aria-label="Menu"
           >
-            <motion.span 
+            <motion.span
               animate={isOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
               className="w-6 h-0.5 bg-white rounded-full block"
             />
-            <motion.span 
+            <motion.span
               animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
               className="w-6 h-0.5 bg-white rounded-full block"
             />
-            <motion.span 
+            <motion.span
               animate={isOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
               className="w-6 h-0.5 bg-white rounded-full block"
             />
@@ -114,18 +122,18 @@ export default function Navbar() {
           >
             {/* Background Texture Subtil */}
             <div className="absolute inset-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/dark-leather.png')]" />
-            
+
             <ul className="flex flex-col items-center gap-6 w-full max-w-[280px] relative z-10">
               {menuLinks.map((item, idx) => (
                 <React.Fragment key={item.name}>
-                  <motion.li 
+                  <motion.li
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 + idx * 0.1 }}
                     className="w-full text-center"
                   >
                     {item.external ? (
-                      <a 
+                      <a
                         href={item.href}
                         onClick={() => setIsOpen(false)}
                         target="_blank"
@@ -135,8 +143,8 @@ export default function Navbar() {
                         {item.name}
                       </a>
                     ) : item.isHash ? (
-                      <HashLink 
-                        smooth 
+                      <HashLink
+                        smooth
                         to={item.href}
                         onClick={() => setIsOpen(false)}
                         className="text-xl font-serif font-bold tracking-[0.2em] uppercase text-white hover:text-yellow-500 transition-colors block py-2"
@@ -144,7 +152,7 @@ export default function Navbar() {
                         {item.name}
                       </HashLink>
                     ) : (
-                      <Link 
+                      <Link
                         to={item.href}
                         onClick={() => setIsOpen(false)}
                         className="text-xl font-serif font-bold tracking-[0.2em] uppercase text-white hover:text-yellow-500 transition-colors block py-2"
@@ -154,7 +162,7 @@ export default function Navbar() {
                     )}
                   </motion.li>
                   {idx < menuLinks.length - 1 && (
-                    <motion.div 
+                    <motion.div
                       initial={{ scaleX: 0, opacity: 0 }}
                       animate={{ scaleX: 1, opacity: 1 }}
                       transition={{ delay: 0.15 + idx * 0.1 }}

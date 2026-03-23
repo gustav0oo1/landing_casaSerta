@@ -56,12 +56,12 @@ export default function Events() {
               key={evento.titulo}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, margin: "50px" }}
               variants={{
-                hidden: { opacity: 0, scale: 0.95, y: 30 },
-                visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.6, delay: idx * 0.15 } }
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: idx * 0.1 } }
               }}
-              className="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-red-900/50 transition-colors duration-500 cursor-pointer"
+              className="group relative overflow-hidden rounded-2xl bg-neutral-900 border border-neutral-800 hover:border-red-900/50 transition-colors duration-500 cursor-pointer will-change-transform"
             >
               <div className="aspect-[4/3] overflow-hidden relative">
                 <img 

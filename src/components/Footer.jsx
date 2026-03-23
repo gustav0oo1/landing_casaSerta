@@ -3,23 +3,24 @@ import { motion } from 'framer-motion';
 
 export default function Footer() {
   const fadeUp = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
   };
+  const viewConfig = { once: true, margin: "50px" };
 
   return (
     <>
       <footer id="contato" className="relative bg-[#050505] pt-20 pb-10 px-6 md:px-12 border-t border-neutral-900 overflow-hidden">
         
-        {/* Glow Dourado de Fundo */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-yellow-900/10 rounded-full blur-[120px] pointer-events-none" />
+        {/* Glow Dourado de Fundo Otimizado */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full md:w-[800px] h-[200px] md:h-[300px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-yellow-900/15 via-transparent to-transparent pointer-events-none" />
 
         <div className="max-w-7xl mx-auto relative z-10">
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             
             {/* Bloco 1: Marca */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="flex flex-col gap-4">
+            <motion.div initial="hidden" whileInView="visible" viewport={viewConfig} variants={fadeUp} className="flex flex-col gap-4 will-change-transform">
               <div className="flex flex-col drop-shadow-md cursor-pointer group w-max">
                 <span className="font-serif font-bold text-2xl tracking-widest text-white group-hover:text-yellow-500 transition-colors duration-300">
                   PAIOÇA
@@ -34,7 +35,7 @@ export default function Footer() {
             </motion.div>
 
             {/* Bloco 2: Contatos */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.1 } } }} className="flex flex-col gap-6">
+            <motion.div initial="hidden" whileInView="visible" viewport={viewConfig} variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.05 } } }} className="flex flex-col gap-6 will-change-transform">
               <h3 className="font-serif text-xl font-bold text-white tracking-wide">Contato</h3>
               <ul className="flex flex-col gap-4">
                 <li className="flex items-center gap-3 text-sm text-neutral-400 group cursor-pointer">
@@ -53,7 +54,7 @@ export default function Footer() {
             </motion.div>
 
             {/* Bloco 3: Endereço */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.2 } } }} className="flex flex-col gap-6">
+            <motion.div initial="hidden" whileInView="visible" viewport={viewConfig} variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.1 } } }} className="flex flex-col gap-6 will-change-transform">
               <h3 className="font-serif text-xl font-bold text-white tracking-wide">Endereço</h3>
               <a 
                 href="https://www.google.com/maps/search/?api=1&query=Paio%C3%A7a+do+Caboclo+Estrada+das+Cabras+Km+5.5+Joaquim+Eg%C3%ADdio+Campinas+SP"
@@ -71,7 +72,7 @@ export default function Footer() {
             </motion.div>
 
             {/* Bloco 4: Redes Sociais */}
-            <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.3 } } }} className="flex flex-col gap-6 lg:items-end">
+            <motion.div initial="hidden" whileInView="visible" viewport={viewConfig} variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.15 } } }} className="flex flex-col gap-6 lg:items-end will-change-transform">
               <h3 className="font-serif text-xl font-bold text-white tracking-wide lg:text-right w-full">Siga-nos</h3>
               <div className="flex gap-4">
                 {[
@@ -103,9 +104,9 @@ export default function Footer() {
           <motion.div 
             initial="hidden" 
             whileInView="visible" 
-            viewport={{ once: true }} 
-            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 1, delay: 0.5 } } }}
-            className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-neutral-900/50 text-[#555] text-xs font-bold tracking-widest uppercase"
+            viewport={viewConfig} 
+            variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { duration: 0.6, delay: 0.2 } } }}
+            className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-neutral-900/50 text-[#555] text-xs font-bold tracking-widest uppercase will-change-opacity"
           >
             <p>© Copyright 2024 – Paioça do Caboclo.</p>
             <p>

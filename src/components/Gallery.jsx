@@ -26,9 +26,9 @@ export default function Gallery() {
         <motion.div 
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: "50px" }}
           variants={fadeUp}
-          className="text-center mb-12"
+          className="text-center mb-12 will-change-transform"
         >
           <span className="text-[0.65rem] font-bold tracking-[0.3em] text-neutral-500 uppercase mb-4 block">
             Nossa Casa
@@ -45,12 +45,12 @@ export default function Gallery() {
               key={idx}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "50px" }}
               variants={{
-                hidden: { opacity: 0, scale: 0.9 },
-                visible: { opacity: 1, scale: 1, transition: { duration: 0.5, delay: idx * 0.05 } }
+                hidden: { opacity: 0, scale: 0.95 },
+                visible: { opacity: 1, scale: 1, transition: { duration: 0.4, delay: idx * 0.05 } }
               }}
-              className="group relative aspect-square overflow-hidden rounded-lg bg-neutral-900 cursor-zoom-in"
+              className="group relative aspect-square overflow-hidden rounded-lg bg-neutral-900 cursor-zoom-in will-change-transform"
             >
               <img 
                 src={src} 
